@@ -9,15 +9,15 @@ feature 'Starting a new game' do
 
   scenario 'I can enter my name' do
     visit '/new_game'
-    fill_in 'name', with: 'Sarah'
+    fill_in 'first_name', with: 'Sarah'
     click_button 'Submit'
-    expect(page).to have_content 'Sarah'
+    expect(page).to have_content 'Ready, Sarah?! You are playing against COMPUTER'
   end
 
   scenario 'raise an error when there is no name' do
     visit '/new_game'
     click_button 'Submit'
-    expect(page).to have_content"What's your name?"
+    expect(page).to have_content('Whoops')
   end
 
 end
