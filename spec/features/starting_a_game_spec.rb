@@ -14,4 +14,10 @@ feature 'Starting a new game' do
     expect(page).to have_content 'Sarah'
   end
 
+  scenario 'raise an error when there is no name' do
+    visit '/new_game'
+    click_button 'Submit'
+    expect(page).to have_content"What's your name?"
+  end
+
 end
